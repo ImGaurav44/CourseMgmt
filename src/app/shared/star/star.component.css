@@ -1,0 +1,11 @@
+.parent
+{
+overflow: hidden;
+
+}
+
+.child
+{
+    width:75px;
+    color:goldenrod;
+}

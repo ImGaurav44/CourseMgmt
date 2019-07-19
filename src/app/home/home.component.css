@@ -1,0 +1,37 @@
+div #home-card
+{
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    border-width:thin;
+    overflow: hidden;
+  display: block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* padding: 30px 20px 30px 20px; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#front-title
+{
+    font-weight:bold; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-size: 40px; 
+    color: #dc3545; 
+    
+    -webkit-marquee-style: scroll;
+}
+
+#front-title:hover
+{
+     text-shadow: 2px 2px 3px yellow; 
+}
+
+#front-title1
+{
+    text-decoration: blink;
+    color: chocolate;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: inherit;
+    font-size: 20px;
+}
