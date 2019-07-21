@@ -12,16 +12,20 @@ export class CourseListComponent implements OnInit {
 
   courses:any;
   showimage:boolean =true;
+  showSpinner:boolean = true;
   limit = [2,5,10,20,100,200];
   selectedValue:any = 3;
   message:string;
+  search_value:string ="";
 
 constructor(private courseService : CourseService) { }
 
-
+ 
 
   ngOnInit() {
-    this.getcourses();
+   // this.getcourses();
+    this.getcoursesFromFireBase();
+    
     this.togglImage();
   }
 
@@ -30,6 +34,10 @@ constructor(private courseService : CourseService) { }
     this.selectedValue =value;
     return this.selectedValue;
   }
+
+
+
+
   togglImage()
   {
     this.showimage = !this.showimage;
@@ -53,6 +61,24 @@ constructor(private courseService : CourseService) { }
             },
             error => console.log(error)
           )
+  }
+
+  getcoursesFromFireBase()
+  {
+    this.courseService.getCoursesFromFromFireBase()
+                            .subscribe(
+                              response =>{
+                                this.courses = [];
+                                response.forEach(item => {
+                                  let course;
+                                  course = item.payload.val();
+                                  course.courseId = item.payload.key;
+                                  this.courses.push(course);
+                                  console.log(response);
+                                  this.showSpinner =!this.showSpinner;
+                                })
+                              },
+                            )
   }
 
 }

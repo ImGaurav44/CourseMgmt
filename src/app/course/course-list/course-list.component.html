@@ -14,13 +14,15 @@
         </div>
         <div class="col-md-4 text-center">
             <h1 class="card-title text-center" id="header-text">Course List</h1>
-        </div>
+        </div> 
         <div class="col-md-4 text-right">
             {{ message }}
+            <input [(ngModel)]="search_value" class="form-control" type="text" name="" placeholder="search text here">
         </div>
        </div>
     </div>
     <div class="card-body">
+        
       <table class="table table-light table-bordered">
         <thead class="thead-dark">
           <tr>
@@ -31,9 +33,9 @@
             <th>Price</th>
             <th>Rating</th>
           </tr>
-        </thead>
+        </thead>   
         <tbody>
-          <tr *ngFor="let course of courses | slice: 0:selectedValue ; let i=index" [attr.data-index]="i">
+          <tr *ngFor="let course of courses |  slice: 0:selectedValue | searchFilter : search_value : slice : 0:2 ; let i=index" [attr.data-index]="i" [routerLink]="['/course/details/',course.courseId]">
             <td><img width="80px" [src]="course.imageUrl" *ngIf="showimage"></td>
             <td>{{course.courseName}}</td>
             <td>{{course.trainer}}</td>
@@ -41,8 +43,13 @@
             <td>{{course.price | currency : 'INR' :true}}</td>
             <td><app-star [rating]='course.starRating' (ratingClick)="startClick($event)"></app-star></td>
           </tr>
-        </tbody>
+        </tbody>    
       </table>
+      <div class="text-center text-success m-5">
+          <div class="spinner-border" role="status" *ngIf="showSpinner">
+            <span class="sr-only">Loading...</span>
+          </div>
+      </div>
     </div>
   </div>
 </div>

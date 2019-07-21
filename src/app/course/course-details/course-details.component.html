@@ -1,0 +1,65 @@
+<!-- <p>
+  course-details works!
+{{course.courseId}}
+
+</p> -->
+<div class="container">
+  <div class="card mt-3 mb-2" id="course-details">
+    <div class="card-header mb-0 pb-0">
+      <div class="row">
+        <div class="col-md-4 text-left">
+           <h3>Course Details</h3>
+        </div>
+        <div class="col-md-6 text-right">
+            Course Rating : 
+         </div>
+         <div class="col-md-2">
+            <app-star [rating]='course.starRating' (ratingClick)="startClick($event)"></app-star>
+         </div>
+      </div>
+    </div>
+<div class="card-body pb-0 mb-0">
+ <div class="row">
+    <div class="col-md-9">
+      <div class="container">
+        <div class="row mb-2 mt-2">
+          <div class="col-sm-3">Course Name</div>
+          <div class="col-sm-9">{{course.courseName}}</div>
+        </div>
+        <hr>
+        <div class="row mb-2 mt-2">
+          <div class="col-sm-3">Trainer Name</div>
+          <div class="col-sm-9">{{course.trainer}}</div>
+        </div>
+        <hr>
+        <div class="row mb-2 mt-2">
+          <div class="col-sm-3">Next Batch Date</div>
+          <div class="col-sm-9">{{course.nextBatchDate}}</div>
+        </div>
+        <hr>
+        <div class="row mb-2 mt-2">
+          <div class="col-sm-3">Course Price</div>
+          <div class="col-sm-9">{{course.price}}</div>
+        </div>
+        <hr>
+        <div class="row mt-2">
+          <div class="col-sm-3">Course Description</div>
+          <div class="col-sm-9">{{course.description}}</div>
+        </div>
+      </div>    
+    </div>
+    <div class="col-lg-3 text-center">
+      <div class="container">
+          <img class="img-thumbnail dimg" height="100%" [src]="course.imageUrl" >
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="card-footer text-right">
+        <a [routerLink]="['/course']"><input  class="btn btn-primary mr-3 fbtn"  type="submit" value="Back" name=""></a>
+        <input class="btn btn-warning mr-3 fbtn" type="submit" value="Edit" name="">
+        <input class="btn btn-danger mr-3 fbtn" type="submit" value="Delete" name="">
+    </div>
+  </div>
+</div>
